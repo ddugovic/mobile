@@ -4,7 +4,6 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lichess_mobile/src/model/broadcast/broadcast_providers.dart';
 import 'package:lichess_mobile/src/model/common/http.dart';
 import 'package:lichess_mobile/src/model/tv/featured_player.dart';
 import 'package:lichess_mobile/src/model/tv/tv_channel.dart';
@@ -15,8 +14,6 @@ import 'package:lichess_mobile/src/navigation.dart';
 import 'package:lichess_mobile/src/styles/styles.dart';
 import 'package:lichess_mobile/src/utils/l10n_context.dart';
 import 'package:lichess_mobile/src/utils/navigation.dart';
-import 'package:lichess_mobile/src/view/broadcast/broadcast_tile.dart';
-import 'package:lichess_mobile/src/view/broadcast/broadcasts_list_screen.dart';
 import 'package:lichess_mobile/src/view/watch/live_tv_channels_screen.dart';
 import 'package:lichess_mobile/src/view/watch/streamer_screen.dart';
 import 'package:lichess_mobile/src/view/watch/tv_screen.dart';
@@ -88,8 +85,6 @@ class _WatchScreenState extends ConsumerState<WatchTabScreen> {
   }
 
   List<Widget> get watchTabWidgets => const [
-        // TODO: show widget when broadcasts feature is ready
-        //_BroadcastWidget(),
         _WatchTvWidget(),
         _StreamerWidget(),
       ];
@@ -179,67 +174,9 @@ class _WatchScreenState extends ConsumerState<WatchTabScreen> {
 
 Future<void> _refreshData(WidgetRef ref) {
   return Future.wait([
-    // TODO uncomment when broadcasts feature is ready
-    // ref.refresh(broadcastsPaginatorProvider.future),
     ref.refresh(featuredChannelsProvider.future),
     ref.refresh(liveStreamersProvider.future),
   ]);
-}
-
-// TODO remove this ignore comment when broadcasts feature is ready
-// ignore: unused_element
-class _BroadcastWidget extends ConsumerWidget {
-  const _BroadcastWidget();
-
-  static const int numberOfItems = 5;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final broadcastList = ref.watch(broadcastsPaginatorProvider);
-
-    return broadcastList.when(
-      data: (data) {
-        return ListSection(
-          header: Text(context.l10n.broadcastBroadcasts),
-          hasLeading: true,
-          headerTrailing: NoPaddingTextButton(
-            onPressed: () {
-              pushPlatformRoute(
-                context,
-                builder: (context) => const BroadcastsListScreen(),
-              );
-            },
-            child: Text(
-              context.l10n.more,
-            ),
-          ),
-          children: [
-            ...CombinedIterableView([data.active, data.upcoming, data.past])
-                .take(numberOfItems)
-                .map((broadcast) => BroadcastTile(broadcast: broadcast)),
-          ],
-        );
-      },
-      error: (error, stackTrace) {
-        debugPrint(
-          'SEVERE: [BroadcastWidget] could not load broadcast data; $error\n $stackTrace',
-        );
-        return const Padding(
-          padding: Styles.bodySectionPadding,
-          child: Text('Could not load broadcasts'),
-        );
-      },
-      loading: () => Shimmer(
-        child: ShimmerLoading(
-          isLoading: true,
-          child: ListSection.loading(
-            itemsNumber: numberOfItems,
-            header: true,
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 class _WatchTvWidget extends ConsumerWidget {
