@@ -62,7 +62,7 @@ class PuzzleController extends _$PuzzleController {
     return _loadNewContext(initialContext, initialStreak);
   }
 
-  PuzzleRepository _repository(LichessClient client) =>
+  PuzzleRepository _repository(LishogiClient client) =>
       PuzzleRepository(client);
 
   PuzzleState _loadNewContext(
@@ -502,7 +502,7 @@ class PuzzleController extends _$PuzzleController {
       return acc;
     });
     final pgn =
-        '[FEN "${initPosition.fen}"][Site "${lichessUri('/training/${state.puzzle.puzzle.id}')}"]${pgnMoves.join(' ')}';
+        '[FEN "${initPosition.fen}"][Site "${lishogiUri('/training/${state.puzzle.puzzle.id}')}"]${pgnMoves.join(' ')}';
     return pgn;
   }
 

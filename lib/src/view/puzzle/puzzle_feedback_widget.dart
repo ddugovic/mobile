@@ -41,7 +41,7 @@ class PuzzleFeedbackWidget extends ConsumerWidget {
             .localizeNumbers();
         return _FeedbackTile(
           leading: state.result == PuzzleResult.win
-              ? Icon(Icons.check, size: 36, color: context.lichessColors.good)
+              ? Icon(Icons.check, size: 36, color: context.lishogiColors.good)
               : null,
           title: onStreak && state.result == PuzzleResult.lose
               ? const Text(
@@ -71,7 +71,7 @@ class PuzzleFeedbackWidget extends ConsumerWidget {
             leading: Icon(
               Icons.close,
               size: 36,
-              color: context.lichessColors.error,
+              color: context.lishogiColors.error,
             ),
             title: Text(context.l10n.puzzleNotTheMove),
             subtitle: Text(context.l10n.puzzleTrySomethingElse),
@@ -79,7 +79,7 @@ class PuzzleFeedbackWidget extends ConsumerWidget {
         } else if (state.feedback == PuzzleFeedback.good) {
           return _FeedbackTile(
             leading:
-                Icon(Icons.check, size: 36, color: context.lichessColors.good),
+                Icon(Icons.check, size: 36, color: context.lishogiColors.good),
             title: Text(context.l10n.puzzleBestMove),
             subtitle: Text(context.l10n.puzzleKeepGoing),
           );

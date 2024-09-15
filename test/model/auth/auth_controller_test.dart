@@ -79,8 +79,8 @@ void main() {
         overrides: [
           appAuthProvider.overrideWithValue(mockFlutterAppAuth),
           sessionStorageProvider.overrideWithValue(mockSessionStorage),
-          lichessClientProvider
-              .overrideWith((ref) => LichessClient(client, ref)),
+          lishogiClientProvider
+              .overrideWith((ref) => LishogiClient(client, ref)),
         ],
       );
 
@@ -122,8 +122,8 @@ void main() {
         overrides: [
           appAuthProvider.overrideWithValue(mockFlutterAppAuth),
           sessionStorageProvider.overrideWithValue(mockSessionStorage),
-          lichessClientProvider
-              .overrideWith((ref) => LichessClient(client, ref)),
+          lishogiClientProvider
+              .overrideWith((ref) => LishogiClient(client, ref)),
         ],
       );
 

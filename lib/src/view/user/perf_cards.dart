@@ -114,16 +114,16 @@ class PerfCards extends StatelessWidget {
                                       ? LichessIcons.arrow_full_upperright
                                       : LichessIcons.arrow_full_lowerright,
                                   color: userPerf.progression > 0
-                                      ? context.lichessColors.good
-                                      : context.lichessColors.error,
+                                      ? context.lishogiColors.good
+                                      : context.lishogiColors.error,
                                   size: 12,
                                 ),
                                 Text(
                                   userPerf.progression.abs().toString(),
                                   style: TextStyle(
                                     color: userPerf.progression > 0
-                                        ? context.lichessColors.good
-                                        : context.lichessColors.error,
+                                        ? context.lishogiColors.good
+                                        : context.lishogiColors.error,
                                     fontSize: 11,
                                   ),
                                 ),

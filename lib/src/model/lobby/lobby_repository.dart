@@ -24,7 +24,7 @@ Future<IList<CorrespondenceChallenge>> correspondenceChallenges(
 class LobbyRepository {
   LobbyRepository(this.client);
 
-  final LichessClient client;
+  final LishogiClient client;
 
   Future<void> createSeek(GameSeek seek, {required String sri}) async {
     final uri = Uri(path: '/api/board/seek', queryParameters: {'sri': sri});
@@ -51,7 +51,7 @@ class LobbyRepository {
   Future<IList<CorrespondenceChallenge>> getCorrespondenceChallenges() {
     return client.readJsonList(
       Uri(path: '/lobby/seeks'),
-      headers: {'Accept': 'application/vnd.lichess.v5+json'},
+      headers: {'Accept': 'application/vnd.lishogi.v5+json'},
       mapper: _correspondenceSeekFromJson,
     );
   }

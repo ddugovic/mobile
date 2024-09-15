@@ -26,8 +26,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
 
       final repo = GameRepository(client);
 
@@ -59,8 +59,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = GameRepository(client);
       final result = await repo.getGamesByIds(ids);
 
@@ -83,8 +83,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = GameRepository(client);
       final game = await repo.getGame(const GameId('qVChCOTc'));
 
@@ -106,8 +106,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = GameRepository(client);
       final result = await repo.getGame(const GameId('1vdsvmxp'));
 

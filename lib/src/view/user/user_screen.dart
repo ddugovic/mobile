@@ -97,7 +97,7 @@ class _UserProfileListView extends ConsumerWidget {
     }
 
     Future<void> userAction(
-      Future<void> Function(LichessClient client) action,
+      Future<void> Function(LishogiClient client) action,
     ) async {
       setIsLoading(true);
       try {
@@ -178,7 +178,7 @@ class _UserProfileListView extends ConsumerWidget {
                 title: Text(context.l10n.reportXToModerators(user.username)),
                 onTap: () {
                   launchUrl(
-                    lichessUri('/report', {
+                    lishogiUri('/report', {
                       'username': user.id,
                       'login': session.user.id,
                     }),

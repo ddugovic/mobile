@@ -103,17 +103,17 @@ class _Body extends ConsumerWidget {
                 leading: Icon(
                   LichessIcons.patron,
                   semanticLabel: context.l10n.patronLichessPatron,
-                  color: context.lichessColors.brag,
+                  color: context.lishogiColors.brag,
                 ),
                 title: Text(
                   context.l10n.patronDonate,
-                  style: TextStyle(color: context.lichessColors.brag),
+                  style: TextStyle(color: context.lishogiColors.brag),
                 ),
                 trailing: Theme.of(context).platform == TargetPlatform.iOS
                     ? const CupertinoListTileChevron()
                     : null,
                 onTap: () {
-                  launchUrl(Uri.parse('https://lichess.org/patron'));
+                  launchUrl(Uri.parse('https://lishogi.org/patron'));
                 },
               )
             : null;
@@ -310,7 +310,7 @@ class _Body extends ConsumerWidget {
             title: Text(context.l10n.aboutX('Lichess')),
             trailing: const _OpenInNewIcon(),
             onTap: () {
-              launchUrl(Uri.parse('https://lichess.org/about'));
+              launchUrl(Uri.parse('https://lishogi.org/about'));
             },
           ),
           PlatformListTile(
@@ -318,7 +318,7 @@ class _Body extends ConsumerWidget {
             title: Text(context.l10n.mobileFeedbackButton),
             trailing: const _OpenInNewIcon(),
             onTap: () {
-              launchUrl(Uri.parse('https://lichess.org/contact'));
+              launchUrl(Uri.parse('https://lishogi.org/contact'));
             },
           ),
           PlatformListTile(
@@ -326,7 +326,7 @@ class _Body extends ConsumerWidget {
             title: Text(context.l10n.termsOfService),
             trailing: const _OpenInNewIcon(),
             onTap: () {
-              launchUrl(Uri.parse('https://lichess.org/terms-of-service'));
+              launchUrl(Uri.parse('https://lishogi.org/terms-of-service'));
             },
           ),
           PlatformListTile(
@@ -334,7 +334,7 @@ class _Body extends ConsumerWidget {
             title: Text(context.l10n.privacyPolicy),
             trailing: const _OpenInNewIcon(),
             onTap: () {
-              launchUrl(Uri.parse('https://lichess.org/privacy'));
+              launchUrl(Uri.parse('https://lishogi.org/privacy'));
             },
           ),
         ],
@@ -348,7 +348,7 @@ class _Body extends ConsumerWidget {
             title: Text(context.l10n.sourceCode),
             trailing: const _OpenInNewIcon(),
             onTap: () {
-              launchUrl(Uri.parse('https://lichess.org/source'));
+              launchUrl(Uri.parse('https://lishogi.org/source'));
             },
           ),
           PlatformListTile(
@@ -356,7 +356,7 @@ class _Body extends ConsumerWidget {
             title: Text(context.l10n.contribute),
             trailing: const _OpenInNewIcon(),
             onTap: () {
-              launchUrl(Uri.parse('https://lichess.org/help/contribute'));
+              launchUrl(Uri.parse('https://lishogi.org/help/contribute'));
             },
           ),
           PlatformListTile(
@@ -364,7 +364,7 @@ class _Body extends ConsumerWidget {
             title: Text(context.l10n.thankYou),
             trailing: const _OpenInNewIcon(),
             onTap: () {
-              launchUrl(Uri.parse('https://lichess.org/thanks'));
+              launchUrl(Uri.parse('https://lishogi.org/thanks'));
             },
           ),
         ],

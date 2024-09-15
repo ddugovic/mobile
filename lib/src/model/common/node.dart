@@ -326,7 +326,7 @@ abstract class Node {
                 ?.map((c) => c.makeComment())
                 .toList(),
             comments:
-                (childFrom.lichessAnalysisComments ?? childFrom.comments)?.map(
+                (childFrom.lishogiAnalysisComments ?? childFrom.comments)?.map(
               (c) {
                 final eval = childFrom.eval;
                 final pgnEval = eval?.cp != null
@@ -377,7 +377,7 @@ class Branch extends Node {
     super.opening,
     required this.sanMove,
     this.isHidden = false,
-    this.lichessAnalysisComments,
+    this.lishogiAnalysisComments,
     // below are fields from dartchess [PgnNodeData]
     this.startingComments,
     this.comments,
@@ -405,7 +405,7 @@ class Branch extends Node {
   /// Lichess analysis comments.
   ///
   /// These are standard PGN comments, but get a special treatment.
-  List<PgnComment>? lichessAnalysisComments;
+  List<PgnComment>? lishogiAnalysisComments;
 
   @override
   ViewBranch get view => ViewBranch(
@@ -415,7 +415,7 @@ class Branch extends Node {
         opening: opening,
         children: IList(children.map((child) => child.view)),
         isHidden: isHidden,
-        lichessAnalysisComments: lichessAnalysisComments?.lock,
+        lishogiAnalysisComments: lishogiAnalysisComments?.lock,
         startingComments: startingComments?.lock,
         comments: comments?.lock,
         nags: nags?.lock,
@@ -504,7 +504,7 @@ class Root extends Node {
             sanMove: SanMove(childFrom.data.san, move),
             position: newPos,
             isHidden: hideVariations && childIdx > 0,
-            lichessAnalysisComments:
+            lishogiAnalysisComments:
                 isLichessAnalysis ? comments?.toList() : null,
             startingComments: isLichessAnalysis
                 ? null
@@ -536,7 +536,7 @@ abstract class ViewNode {
   Opening? get opening;
   IList<PgnComment>? get startingComments;
   IList<PgnComment>? get comments;
-  IList<PgnComment>? get lichessAnalysisComments;
+  IList<PgnComment>? get lishogiAnalysisComments;
   IList<int>? get nags;
   Iterable<ViewBranch> get mainline;
 }
@@ -567,7 +567,7 @@ class ViewRoot with _$ViewRoot implements ViewNode {
   IList<PgnComment>? get comments => null;
 
   @override
-  IList<PgnComment>? get lichessAnalysisComments => null;
+  IList<PgnComment>? get lishogiAnalysisComments => null;
 
   @override
   IList<int>? get nags => null;
@@ -593,7 +593,7 @@ class ViewBranch with _$ViewBranch implements ViewNode {
     required IList<ViewBranch> children,
     @Default(false) bool isHidden,
     ClientEval? eval,
-    IList<PgnComment>? lichessAnalysisComments,
+    IList<PgnComment>? lishogiAnalysisComments,
     IList<PgnComment>? startingComments,
     IList<PgnComment>? comments,
     IList<int>? nags,
@@ -607,18 +607,18 @@ class ViewBranch with _$ViewBranch implements ViewNode {
   bool get hasTextComment =>
       comments?.any((c) => c.text?.isNotEmpty == true) == true;
 
-  /// Has at least one non empty lichess analysis comment text.
+  /// Has at least one non empty lishogi analysis comment text.
   bool get hasLichessAnalysisTextComment =>
-      lichessAnalysisComments?.any((c) => c.text?.isNotEmpty == true) == true;
+      lishogiAnalysisComments?.any((c) => c.text?.isNotEmpty == true) == true;
 
   Duration? get clock {
-    final clockComment = (lichessAnalysisComments ?? comments)
+    final clockComment = (lishogiAnalysisComments ?? comments)
         ?.firstWhereOrNull((c) => c.clock != null);
     return clockComment?.clock;
   }
 
   Duration? get elapsedMoveTime {
-    final clockComment = (lichessAnalysisComments ?? comments)
+    final clockComment = (lishogiAnalysisComments ?? comments)
         ?.firstWhereOrNull((c) => c.emt != null);
     return clockComment?.emt;
   }

@@ -120,7 +120,7 @@ abstract mixin class BaseGame {
       final nextNode = Branch(
         sanMove: step.sanMove!,
         position: step.position,
-        lichessAnalysisComments: comment != null ? [comment] : null,
+        lishogiAnalysisComments: comment != null ? [comment] : null,
         nags: nag != null ? [nag] : null,
       );
       current.addChild(nextNode);
@@ -160,7 +160,7 @@ abstract mixin class BaseGame {
     final pgn = node.makePgn(
       IMap({
         'Event': '${meta.rated ? 'Rated' : ''} ${meta.perf.title} game',
-        'Site': lichessUri('/$id').toString(),
+        'Site': lishogiUri('/$id').toString(),
         'Date': _dateFormat.format(meta.createdAt),
         'White': white.user?.name ??
             white.name ??

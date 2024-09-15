@@ -159,7 +159,7 @@ class _Body extends ConsumerWidget {
                                     data.dayHighscores[entryIndex].score
                                         .toString(),
                                     style: TextStyle(
-                                      color: context.lichessColors.brag,
+                                      color: context.lishogiColors.brag,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),

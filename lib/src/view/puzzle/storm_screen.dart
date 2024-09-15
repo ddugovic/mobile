@@ -334,7 +334,7 @@ class _TopTable extends ConsumerWidget {
             Icon(
               LichessIcons.storm,
               size: 50.0,
-              color: context.lichessColors.brag,
+              color: context.lishogiColors.brag,
             ),
             const SizedBox(width: 8),
             Text(
@@ -342,7 +342,7 @@ class _TopTable extends ConsumerWidget {
               style: TextStyle(
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
-                color: context.lichessColors.brag,
+                color: context.lishogiColors.brag,
               ),
             ),
             const Spacer(),
@@ -664,12 +664,12 @@ class _RunStatsPopupState extends ConsumerState<_RunStatsPopup> {
               leading: Icon(
                 LichessIcons.storm,
                 size: 46,
-                color: context.lichessColors.brag,
+                color: context.lishogiColors.brag,
               ),
               title: Text(
                 newHighTitle(context, widget.stats.newHigh!),
                 style: Styles.sectionTitle.copyWith(
-                  color: context.lichessColors.brag,
+                  color: context.lishogiColors.brag,
                 ),
               ),
               subtitle: Text(
@@ -677,7 +677,7 @@ class _RunStatsPopupState extends ConsumerState<_RunStatsPopup> {
                   widget.stats.newHigh!.prev.toString(),
                 ),
                 style: TextStyle(
-                  color: context.lichessColors.brag,
+                  color: context.lishogiColors.brag,
                 ),
               ),
             ),

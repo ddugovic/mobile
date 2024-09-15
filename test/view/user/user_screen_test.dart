@@ -42,8 +42,8 @@ void main() {
           tester,
           home: const UserScreen(user: testUser),
           overrides: [
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 

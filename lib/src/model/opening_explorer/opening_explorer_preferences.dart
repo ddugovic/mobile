@@ -40,26 +40,26 @@ class OpeningExplorerPreferences extends _$OpeningExplorerPreferences {
 
   Future<void> toggleLichessDbSpeed(Speed speed) => _save(
         state.copyWith(
-          lichessDb: state.lichessDb.copyWith(
-            speeds: state.lichessDb.speeds.contains(speed)
-                ? state.lichessDb.speeds.remove(speed)
-                : state.lichessDb.speeds.add(speed),
+          lishogiDb: state.lishogiDb.copyWith(
+            speeds: state.lishogiDb.speeds.contains(speed)
+                ? state.lishogiDb.speeds.remove(speed)
+                : state.lishogiDb.speeds.add(speed),
           ),
         ),
       );
 
   Future<void> toggleLichessDbRating(int rating) => _save(
         state.copyWith(
-          lichessDb: state.lichessDb.copyWith(
-            ratings: state.lichessDb.ratings.contains(rating)
-                ? state.lichessDb.ratings.remove(rating)
-                : state.lichessDb.ratings.add(rating),
+          lishogiDb: state.lishogiDb.copyWith(
+            ratings: state.lishogiDb.ratings.contains(rating)
+                ? state.lishogiDb.ratings.remove(rating)
+                : state.lishogiDb.ratings.add(rating),
           ),
         ),
       );
 
   Future<void> setLichessDbSince(DateTime since) => _save(
-        state.copyWith(lichessDb: state.lichessDb.copyWith(since: since)),
+        state.copyWith(lishogiDb: state.lishogiDb.copyWith(since: since)),
       );
 
   Future<void> setPlayerDbUsernameOrId(String username) => _save(
@@ -110,7 +110,7 @@ class OpeningExplorerPreferences extends _$OpeningExplorerPreferences {
 
 enum OpeningDatabase {
   master,
-  lichess,
+  lishogi,
   player,
 }
 
@@ -121,7 +121,7 @@ class OpeningExplorerPrefState with _$OpeningExplorerPrefState {
   const factory OpeningExplorerPrefState({
     required OpeningDatabase db,
     required MasterDbPrefState masterDb,
-    required LichessDbPrefState lichessDb,
+    required LichessDbPrefState lishogiDb,
     required PlayerDbPrefState playerDb,
   }) = _OpeningExplorerPrefState;
 
@@ -129,7 +129,7 @@ class OpeningExplorerPrefState with _$OpeningExplorerPrefState {
       OpeningExplorerPrefState(
         db: OpeningDatabase.master,
         masterDb: MasterDbPrefState.defaults,
-        lichessDb: LichessDbPrefState.defaults,
+        lishogiDb: LichessDbPrefState.defaults,
         playerDb: PlayerDbPrefState.defaults(user: user),
       );
 

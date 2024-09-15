@@ -112,7 +112,7 @@ class StreamerListTile extends StatelessWidget {
               Text(
                 streamer.title!,
                 style: TextStyle(
-                  color: context.lichessColors.brag,
+                  color: context.lishogiColors.brag,
                   fontWeight: FontWeight.bold,
                 ),
               ),

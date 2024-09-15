@@ -11,7 +11,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_repository.g.dart';
 
-const redirectUri = 'org.lichess.mobile://login-callback';
+const redirectUri = 'org.lishogi.mobile://login-callback';
 const oauthScopes = ['web:mobile'];
 
 @Riverpod(keepAlive: true)
@@ -21,12 +21,12 @@ FlutterAppAuth appAuth(AppAuthRef ref) {
 
 class AuthRepository {
   AuthRepository(
-    LichessClient client,
+    LishogiClient client,
     FlutterAppAuth appAuth,
   )   : _client = client,
         _appAuth = appAuth;
 
-  final LichessClient _client;
+  final LishogiClient _client;
   final Logger _log = Logger('AuthRepository');
   final FlutterAppAuth _appAuth;
 
@@ -39,12 +39,12 @@ class AuthRepository {
   Future<AuthSessionState> signIn() async {
     final authResp = await _appAuth.authorizeAndExchangeCode(
       AuthorizationTokenRequest(
-        kLichessClientId,
+        kLishogiClientId,
         redirectUri,
         allowInsecureConnections: kDebugMode,
         serviceConfiguration: AuthorizationServiceConfiguration(
-          authorizationEndpoint: lichessUri('/oauth').toString(),
-          tokenEndpoint: lichessUri('/api/token').toString(),
+          authorizationEndpoint: lishogiUri('/oauth').toString(),
+          tokenEndpoint: lishogiUri('/api/token').toString(),
         ),
         scopes: oauthScopes,
       ),

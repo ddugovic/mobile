@@ -326,7 +326,7 @@ class _EditProfileFormState extends ConsumerState<_EditProfileForm> {
                   border: Border.all(
                     color: field.errorText == null
                         ? CupertinoColors.systemGrey4
-                        : context.lichessColors.error,
+                        : context.lishogiColors.error,
                     width: 1,
                   ),
                 ),
@@ -389,7 +389,7 @@ class _EditProfileFormState extends ConsumerState<_EditProfileForm> {
                   border: Border.all(
                     color: field.errorText == null
                         ? CupertinoColors.systemGrey4
-                        : context.lichessColors.error,
+                        : context.lishogiColors.error,
                     width: 1,
                   ),
                 ),

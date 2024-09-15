@@ -158,8 +158,8 @@ void main() {
             puzzleId: puzzle2.puzzle.id,
           ),
           overrides: [
-            lichessClientProvider.overrideWith((ref) {
-              return LichessClient(mockClient, ref);
+            lishogiClientProvider.overrideWith((ref) {
+              return LishogiClient(mockClient, ref);
             }),
             puzzleBatchStorageProvider.overrideWith((ref) {
               return mockBatchStorage;
@@ -271,8 +271,8 @@ void main() {
             puzzleId: puzzle2.puzzle.id,
           ),
           overrides: [
-            lichessClientProvider.overrideWith((ref) {
-              return LichessClient(mockClient, ref);
+            lishogiClientProvider.overrideWith((ref) {
+              return LishogiClient(mockClient, ref);
             }),
             puzzleBatchStorageProvider.overrideWith((ref) {
               return mockBatchStorage;
@@ -384,8 +384,8 @@ void main() {
             puzzleId: puzzle2.puzzle.id,
           ),
           overrides: [
-            lichessClientProvider.overrideWith((ref) {
-              return LichessClient(mockClient, ref);
+            lishogiClientProvider.overrideWith((ref) {
+              return LishogiClient(mockClient, ref);
             }),
             puzzleBatchStorageProvider.overrideWith((ref) {
               return mockBatchStorage;

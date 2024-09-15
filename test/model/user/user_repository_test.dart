@@ -34,8 +34,8 @@ void main() {
         }
         return mockResponse('', 404);
       });
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
 
       final repo = UserRepository(client);
 
@@ -93,8 +93,8 @@ void main() {
         }
         return mockResponse('', 404);
       });
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = UserRepository(client);
 
       final result = await repo.getUser(testUserId);
@@ -150,8 +150,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = UserRepository(client);
 
       final result = await repo.getPerfStats(testUserId, testPerf);
@@ -407,8 +407,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = UserRepository(client);
 
       final result = await repo.getPerfStats(testUserId, testPerf);
@@ -437,8 +437,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = UserRepository(client);
       final result = await repo.getUsersStatuses(ids);
 
@@ -479,8 +479,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = UserRepository(client);
       final result = await repo.getUsersStatuses(ids);
 
@@ -502,8 +502,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = UserRepository(client);
 
       final result = await repo.getTop1();
@@ -537,8 +537,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = UserRepository(client);
 
       final result = await repo.getLeaderboard();
@@ -556,8 +556,8 @@ void main() {
       return mockResponse('', 404);
     });
 
-    final container = await lichessClientContainer(mockClient);
-    final client = container.read(lichessClientProvider);
+    final container = await lishogiClientContainer(mockClient);
+    final client = container.read(lishogiClientProvider);
     final repo = UserRepository(client);
     final result = await repo.getActivity(const UserId('testUser'));
 

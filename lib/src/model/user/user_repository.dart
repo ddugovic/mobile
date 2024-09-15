@@ -13,7 +13,7 @@ import 'user.dart';
 class UserRepository {
   UserRepository(this.client);
 
-  final LichessClient client;
+  final LishogiClient client;
 
   Future<User> getUser(UserId id, {bool withCanChallenge = false}) {
     return client.readJson(

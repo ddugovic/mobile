@@ -66,8 +66,8 @@ void main() {
           home: const SettingsTabScreen(),
           userSession: fakeSession,
           overrides: [
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
             getDbSizeInBytesProvider.overrideWith((_) => 1000),
           ],
         );

@@ -93,7 +93,7 @@ class _Body extends ConsumerWidget {
                 itemBuilder: (context, index) {
                   final message =
                       chatState.messages[chatState.messages.length - index - 1];
-                  return (message.username == 'lichess')
+                  return (message.username == 'lishogi')
                       ? _MessageAction(message: message.message)
                       : (message.username == me?.name)
                           ? _MessageBubble(

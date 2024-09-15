@@ -35,7 +35,7 @@ Future<void> main() async {
   // Intl and timeago setup
   await setupIntl();
 
-  SharedPreferences.setPrefix('lichess.');
+  SharedPreferences.setPrefix('lishogi.');
 
   // Firebase setup
   await Firebase.initializeApp(
@@ -100,8 +100,8 @@ Future<void> main() async {
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   debugPrint('Handling a background message: ${message.data}');
 
-  final gameFullId = message.data['lichess.fullId'] as String?;
-  final round = message.data['lichess.round'] as String?;
+  final gameFullId = message.data['lishogi.fullId'] as String?;
+  final round = message.data['lishogi.round'] as String?;
 
   // update correspondence game
   if (gameFullId != null && round != null) {
@@ -145,7 +145,7 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   }
 
   // update badge
-  final badge = message.data['lichess.iosBadge'] as String?;
+  final badge = message.data['lishogi.iosBadge'] as String?;
   if (badge != null) {
     try {
       BadgeService.instance.setBadge(int.parse(badge));

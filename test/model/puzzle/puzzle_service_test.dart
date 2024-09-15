@@ -32,8 +32,8 @@ void main() {
           ref.onDispose(db.close);
           return db;
         }),
-        lichessClientProvider.overrideWith((ref) {
-          return LichessClient(mockClient, ref);
+        lishogiClientProvider.overrideWith((ref) {
+          return LishogiClient(mockClient, ref);
         }),
       ],
     );

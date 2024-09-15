@@ -51,8 +51,8 @@ final _globalStreamController = StreamController<SocketEvent>.broadcast();
 /// - 'message'
 final socketGlobalStream = _globalStreamController.stream;
 
-/// Creates a WebSocket URI for the lichess server.
-Uri lichessWSUri(
+/// Creates a WebSocket URI for the lishogi server.
+Uri lishogiWSUri(
   String unencodedPath, [
   Map<String, String>? queryParameters,
 ]) =>
@@ -71,7 +71,7 @@ Uri lichessWSUri(
             queryParameters: queryParameters,
           );
 
-/// A lichess WebSocket client.
+/// A lishogi WebSocket client.
 ///
 /// Handles authentication:
 ///  - adds the following headers on connect:
@@ -203,7 +203,7 @@ class SocketClient {
     _ackResendTimer = Timer.periodic(resendAckDelay, (_) => _resendAcks());
 
     final session = getSession();
-    final uri = lichessWSUri(route.path);
+    final uri = lishogiWSUri(route.path);
     final Map<String, String> headers = session != null
         ? {
             'Authorization': 'Bearer ${signBearerToken(session.token)}',
@@ -437,7 +437,7 @@ class SocketClient {
 ///
 /// The pool is used to manage multiple socket connections to different routes.
 /// It ensures that only one connection is active at a time, and that a client
-/// created for a route other than the lichess default socket route is disposed
+/// created for a route other than the lishogi default socket route is disposed
 /// when it becomes idle.
 ///
 /// A client for the default route is created upon initialization and is never

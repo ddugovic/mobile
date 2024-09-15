@@ -76,7 +76,7 @@ class _Body extends ConsumerWidget {
                   ),
                   Icon(
                     game.channel.icon,
-                    color: context.lichessColors.brag,
+                    color: context.lishogiColors.brag,
                     size: 30,
                   ),
                   UserFullNameWidget.player(

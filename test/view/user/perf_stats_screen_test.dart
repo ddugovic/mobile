@@ -34,8 +34,8 @@ void main() {
             perf: testPerf,
           ),
           overrides: [
-            lichessClientProvider.overrideWith((ref) {
-              return LichessClient(client, ref);
+            lishogiClientProvider.overrideWith((ref) {
+              return LishogiClient(client, ref);
             }),
           ],
         );
@@ -66,8 +66,8 @@ void main() {
             perf: testPerf,
           ),
           overrides: [
-            lichessClientProvider.overrideWith((ref) {
-              return LichessClient(client, ref);
+            lishogiClientProvider.overrideWith((ref) {
+              return LishogiClient(client, ref);
             }),
           ],
         );

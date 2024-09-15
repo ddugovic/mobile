@@ -1,4 +1,4 @@
-package org.lichess.mobileV2
+package org.lishogi.mobileV2
 
 import android.app.ActivityManager
 import android.content.Context
@@ -9,8 +9,8 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity: FlutterActivity() {
-  private val GESTURES_CHANNEL = "mobile.lichess.org/gestures_exclusion"
-  private val SYSTEM_CHANNEL = "mobile.lichess.org/system"
+  private val GESTURES_CHANNEL = "mobile.lishogi.org/gestures_exclusion"
+  private val SYSTEM_CHANNEL = "mobile.lishogi.org/system"
 
   override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
     super.configureFlutterEngine(flutterEngine)

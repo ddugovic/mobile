@@ -22,12 +22,12 @@ void main() {
   );
 
   final mockClient = MockClient((request) {
-    if (request.url.host == 'explorer.lichess.ovh') {
+    if (request.url.host == 'explorer.lishogi.ovh') {
       if (request.url.path == '/masters') {
         return mockResponse(mastersOpeningExplorerResponse, 200);
       }
-      if (request.url.path == '/lichess') {
-        return mockResponse(lichessOpeningExplorerResponse, 200);
+      if (request.url.path == '/lishogi') {
+        return mockResponse(lishogiOpeningExplorerResponse, 200);
       }
       if (request.url.path == '/player') {
         return mockResponse(playerOpeningExplorerResponse, 200);
@@ -104,7 +104,7 @@ void main() {
     );
 
     testWidgets(
-      'lichess opening explorer loads',
+      'lishogi opening explorer loads',
       (WidgetTester tester) async {
         final app = await buildTestApp(
           tester,
@@ -118,7 +118,7 @@ void main() {
           defaultPreferences: {
             OpeningExplorerPreferences.prefKey: jsonEncode(
               OpeningExplorerPrefState.defaults()
-                  .copyWith(db: OpeningDatabase.lichess)
+                  .copyWith(db: OpeningDatabase.lishogi)
                   .toJson(),
             ),
           },
@@ -268,7 +268,7 @@ const mastersOpeningExplorerResponse = '''
 }
 ''';
 
-const lichessOpeningExplorerResponse = '''
+const lishogiOpeningExplorerResponse = '''
 {
   "white": 2848672002,
   "draws": 225287646,

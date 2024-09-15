@@ -239,7 +239,7 @@ class _Body extends ConsumerWidget {
                     child: _RatingWidget(
                       data.highestRating,
                       data.highestRatingGame,
-                      context.lichessColors.good,
+                      context.lishogiColors.good,
                     ),
                   ),
                   StatCard(
@@ -247,7 +247,7 @@ class _Body extends ConsumerWidget {
                     child: _RatingWidget(
                       data.lowestRating,
                       data.lowestRatingGame,
-                      context.lichessColors.error,
+                      context.lishogiColors.error,
                     ),
                   ),
                 ]),
@@ -307,7 +307,7 @@ class _Body extends ConsumerWidget {
                     child: _PercentageValueWidget(
                       data.wonGames,
                       data.totalGames,
-                      color: context.lichessColors.good,
+                      color: context.lishogiColors.good,
                     ),
                   ),
                   StatCard(
@@ -324,7 +324,7 @@ class _Body extends ConsumerWidget {
                     child: _PercentageValueWidget(
                       data.lostGames,
                       data.totalGames,
-                      color: context.lichessColors.error,
+                      color: context.lishogiColors.error,
                     ),
                   ),
                 ]),
@@ -379,7 +379,7 @@ class _Body extends ConsumerWidget {
                   child: _StreakWidget(
                     data.maxWinStreak,
                     data.curWinStreak,
-                    color: context.lichessColors.good,
+                    color: context.lishogiColors.good,
                   ),
                 ),
                 StatCard(
@@ -387,7 +387,7 @@ class _Body extends ConsumerWidget {
                   child: _StreakWidget(
                     data.maxLossStreak,
                     data.curLossStreak,
-                    color: context.lichessColors.error,
+                    color: context.lishogiColors.error,
                   ),
                 ),
                 StatCard(
@@ -444,15 +444,15 @@ class _ProgressionWidget extends StatelessWidget {
                 ? LichessIcons.arrow_full_upperright
                 : LichessIcons.arrow_full_lowerright,
             color: progress > 0
-                ? context.lichessColors.good
-                : context.lichessColors.error,
+                ? context.lishogiColors.good
+                : context.lishogiColors.error,
           ),
           Text(
             progress.abs().toString(),
             style: TextStyle(
               color: progress > 0
-                  ? context.lichessColors.good
-                  : context.lichessColors.error,
+                  ? context.lishogiColors.good
+                  : context.lishogiColors.error,
               fontSize: progressionFontSize,
             ),
           ),

@@ -111,7 +111,7 @@ class UserActivityEntry extends ConsumerWidget {
           child: Text(
             _dateFormatter.format(entry.startTime),
             style: TextStyle(
-              color: context.lichessColors.brag,
+              color: context.lishogiColors.brag,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -440,7 +440,7 @@ class BriefGameResultBox extends StatelessWidget {
             if (draw != 0)
               _ResultBox(
                 number: draw,
-                color: context.lichessColors.brag,
+                color: context.lishogiColors.brag,
               ),
             if ((draw != 0 && loss != 0) || (win != 0 && loss != 0))
               const SizedBox(
@@ -450,7 +450,7 @@ class BriefGameResultBox extends StatelessWidget {
               _ResultBox(
                 number: loss,
                 color: Theme.of(context).extension<CustomColors>()?.error ??
-                    context.lichessColors.error,
+                    context.lishogiColors.error,
               ),
           ],
         ),

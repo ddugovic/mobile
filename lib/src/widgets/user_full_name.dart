@@ -36,7 +36,7 @@ class UserFullNameWidget extends ConsumerWidget {
   final LightUser? user;
   final int? rating;
 
-  /// The AI level, if the user is lichess AI.
+  /// The AI level, if the user is lishogi AI.
   final int? aiLevel;
 
   /// Whether the rating is provisional.
@@ -76,7 +76,7 @@ class UserFullNameWidget extends ConsumerWidget {
               user?.isOnline == true ? Icons.cloud : Icons.cloud_off,
               size: style?.fontSize ??
                   DefaultTextStyle.of(context).style.fontSize,
-              color: user?.isOnline == true ? context.lichessColors.good : null,
+              color: user?.isOnline == true ? context.lishogiColors.good : null,
             ),
           ),
         if (user?.isPatron == true)
@@ -95,8 +95,8 @@ class UserFullNameWidget extends ConsumerWidget {
             user!.title!,
             style: (style ?? const TextStyle()).copyWith(
               color: user?.title == 'BOT'
-                  ? context.lichessColors.fancy
-                  : context.lichessColors.brag,
+                  ? context.lishogiColors.fancy
+                  : context.lishogiColors.brag,
               fontWeight: user?.title == 'BOT' ? null : FontWeight.bold,
             ),
           ),
@@ -113,7 +113,7 @@ class UserFullNameWidget extends ConsumerWidget {
         if (showFlair && user?.flair != null) ...[
           const SizedBox(width: 5),
           CachedNetworkImage(
-            imageUrl: lichessFlairSrc(user!.flair!),
+            imageUrl: lishogiFlairSrc(user!.flair!),
             errorWidget: (_, __, ___) => kEmptyWidget,
             width:
                 style?.fontSize ?? DefaultTextStyle.of(context).style.fontSize,

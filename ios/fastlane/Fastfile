@@ -18,7 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    # sh "flutter build ios --release --no-codesign --obfuscate --split-debug-info=./split-debug-info --dart-define=LICHESS_HOST=https://lichess.org --dart-define=LICHESS_WS_HOST=wss://socket.lichess.org --dart-define=LICHESS_WS_SECRET=#{ENV['WS_SECRET']}"
+    # sh "flutter build ios --release --no-codesign --obfuscate --split-debug-info=./split-debug-info --dart-define=LISHOGI_HOST=https://lishogi.org --dart-define=LISHOGI_WS_HOST=wss://socket.lishogi.org --dart-define=LISHOGI_WS_SECRET=#{ENV['WS_SECRET']}"
     if is_ci
       create_keychain(
         name: ENV['MATCH_KEYCHAIN_NAME'],

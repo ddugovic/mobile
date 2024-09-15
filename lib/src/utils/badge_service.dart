@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 
 class BadgeService {
-  static const _channel = MethodChannel('mobile.lichess.org/badge');
+  static const _channel = MethodChannel('mobile.lishogi.org/badge');
 
   const BadgeService._(this._log);
 

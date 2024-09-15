@@ -197,7 +197,7 @@ class _AppState extends ConsumerState<Application> {
         return MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: kSupportedLocales,
-          onGenerateTitle: (BuildContext context) => 'lichess.org',
+          onGenerateTitle: (BuildContext context) => 'lishogi.org',
           locale: generalPrefs.locale,
           theme: ThemeData.from(
             colorScheme: colorScheme,
@@ -214,7 +214,7 @@ class _AppState extends ConsumerState<Application> {
                   : null,
             ),
             extensions: [
-              lichessCustomColors.harmonized(colorScheme),
+              lishogiCustomColors.harmonized(colorScheme),
             ],
           ),
           themeMode: generalPrefs.themeMode,
@@ -370,14 +370,14 @@ class _EntryPointState extends ConsumerState<_EntryPointWidget> {
   /// This method must be part of a State object which is a child of [MaterialApp]
   /// otherwise the [Navigator] will not be accessible.
   void _handleMessage(RemoteMessage message) {
-    switch (message.data['lichess.type']) {
+    switch (message.data['lishogi.type']) {
       // correspondence game message types
       case 'corresAlarm':
       case 'gameTakebackOffer':
       case 'gameDrawOffer':
       case 'gameMove':
       case 'gameFinish':
-        final gameFullId = message.data['lichess.fullId'] as String?;
+        final gameFullId = message.data['lishogi.fullId'] as String?;
         if (gameFullId != null) {
           // remove any existing routes before navigating to the game
           // screen to avoid stacking multiple game screens

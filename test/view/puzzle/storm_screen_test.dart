@@ -33,8 +33,8 @@ void main() {
           home: const StormScreen(),
           overrides: [
             stormProvider.overrideWith((ref) => mockStromRun),
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 
@@ -54,8 +54,8 @@ void main() {
           home: const StormScreen(),
           overrides: [
             stormProvider.overrideWith((ref) => mockStromRun),
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 
@@ -78,8 +78,8 @@ void main() {
           home: const StormScreen(),
           overrides: [
             stormProvider.overrideWith((ref) => mockStromRun),
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 
@@ -133,8 +133,8 @@ void main() {
         home: const StormScreen(),
         overrides: [
           stormProvider.overrideWith((ref) => mockStromRun),
-          lichessClientProvider
-              .overrideWith((ref) => LichessClient(client, ref)),
+          lishogiClientProvider
+              .overrideWith((ref) => LishogiClient(client, ref)),
         ],
       );
 
@@ -178,8 +178,8 @@ void main() {
         home: const StormScreen(),
         overrides: [
           stormProvider.overrideWith((ref) => mockStromRun),
-          lichessClientProvider
-              .overrideWith((ref) => LichessClient(client, ref)),
+          lishogiClientProvider
+              .overrideWith((ref) => LishogiClient(client, ref)),
         ],
       );
 

@@ -98,7 +98,7 @@ class _Body extends ConsumerWidget {
                                 });
                               }
                             },
-                            backgroundColor: context.lichessColors.error,
+                            backgroundColor: context.lishogiColors.error,
                             foregroundColor: Colors.white,
                             icon: Icons.person_remove,
                             // TODO translate

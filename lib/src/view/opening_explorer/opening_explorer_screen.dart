@@ -88,7 +88,7 @@ class _OpeningExplorerState extends ConsumerState<OpeningExplorerScreen> {
                   ? null
                   : () => launchUrl(
                         Uri.parse(
-                          'https://lichess.org/opening/${opening.name}',
+                          'https://lishogi.org/opening/${opening.name}',
                         ),
                       ),
               child: Row(
@@ -1041,7 +1041,7 @@ class _BottomBar extends ConsumerWidget {
 
     final dbLabel = switch (db) {
       OpeningDatabase.master => 'Masters',
-      OpeningDatabase.lichess => 'Lichess',
+      OpeningDatabase.lishogi => 'Lichess',
       OpeningDatabase.player => context.l10n.player,
     };
 

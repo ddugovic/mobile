@@ -24,8 +24,8 @@ void main() {
         final app = await buildTestApp(
           tester,
           overrides: [
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
           home: const LeaderboardScreen(),
         );

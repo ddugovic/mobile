@@ -31,7 +31,7 @@ class DefaultBroadcastImage extends StatelessWidget {
           ),
           child: LayoutBuilder(
             builder: (context, constraints) => Icon(
-              LichessIcons.radio_tower_lichess,
+              LichessIcons.radio_tower_lishogi,
               color: Theme.of(context).colorScheme.onSurfaceVariant,
               size: constraints.maxWidth / 4,
             ),

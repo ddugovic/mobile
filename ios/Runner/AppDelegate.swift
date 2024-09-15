@@ -9,10 +9,10 @@ import Flutter
   ) -> Bool {
 
     let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
-    let BADGE_CHANNEL = FlutterMethodChannel(name: "mobile.lichess.org/badge",
+    let BADGE_CHANNEL = FlutterMethodChannel(name: "mobile.lishogi.org/badge",
                                                     binaryMessenger: controller.binaryMessenger)
 
-    let SYSTEM_CHANNEL = FlutterMethodChannel(name: "mobile.lichess.org/system",
+    let SYSTEM_CHANNEL = FlutterMethodChannel(name: "mobile.lishogi.org/system",
                                                     binaryMessenger: controller.binaryMessenger)
 
     BADGE_CHANNEL.setMethodCallHandler({

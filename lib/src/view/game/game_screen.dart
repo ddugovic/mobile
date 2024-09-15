@@ -215,7 +215,7 @@ class _GameScreenState extends ConsumerState<GameScreen> with RouteAware {
           'SEVERE: [GameScreen] could not create game; $e\n$s',
         );
 
-        // lichess sends a 400 response if user has disallowed challenges
+        // lishogi sends a 400 response if user has disallowed challenges
         final message = e is ServerException && e.statusCode == 400
             ? LoadGameError(
                 'Could not create the game: ${e.jsonError?['error'] as String?}',

@@ -24,7 +24,7 @@ typedef ClockData = ({
   Duration increment,
 });
 
-/// A lichess game exported from the API.
+/// A lishogi game exported from the API.
 ///
 /// This represents a game that is finished and can be viewed by anyone, or accessed
 /// offline.
@@ -63,7 +63,7 @@ class ArchivedGame
     IList<Duration>? clocks,
   }) = _ArchivedGame;
 
-  /// Create an archived game from the lichess api.
+  /// Create an archived game from the lishogi api.
   ///
   /// Currently, those endpoints are supported:
   /// - GET /game/export/<id>
@@ -93,7 +93,7 @@ class ArchivedGame
 /// A [LightArchivedGame] associated with a point of view of a player.
 typedef LightArchivedGameWithPov = ({LightArchivedGame game, Side pov});
 
-/// A lichess game exported from the API, with less data than [ArchivedGame].
+/// A lishogi game exported from the API, with less data than [ArchivedGame].
 ///
 /// This is commonly used to display a list of games.
 /// Lichess endpoints that return this data:
@@ -201,7 +201,7 @@ ArchivedGame _archivedGameFromPick(RequiredPick pick) {
     black: data.black,
     steps: pick('moves').letOrThrow((it) {
       final moves = it.asStringOrThrow().split(' ');
-      // assume lichess always send initialFen with fromPosition and chess960
+      // assume lishogi always send initialFen with fromPosition and chess960
       Position position = (data.variant == Variant.fromPosition ||
               data.variant == Variant.chess960)
           ? Chess.fromSetup(Setup.parseFen(initialFen!))
@@ -213,7 +213,7 @@ ArchivedGame _archivedGameFromPick(RequiredPick pick) {
         final stepClock = clocks?[index];
         index++;
         final move = position.parseSan(san);
-        // assume lichess only sends correct moves
+        // assume lishogi only sends correct moves
         position = position.playUnchecked(move!);
         steps.add(
           GameStep(

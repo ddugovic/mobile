@@ -176,7 +176,7 @@ class _Body extends ConsumerWidget {
                           Icon(
                             LichessIcons.streak,
                             size: 40.0,
-                            color: context.lichessColors.brag,
+                            color: context.lishogiColors.brag,
                           ),
                           const SizedBox(width: 8.0),
                           Text(
@@ -184,7 +184,7 @@ class _Body extends ConsumerWidget {
                             style: TextStyle(
                               fontSize: 30.0,
                               fontWeight: FontWeight.bold,
-                              color: context.lichessColors.brag,
+                              color: context.lishogiColors.brag,
                             ),
                           ),
                         ],
@@ -275,7 +275,7 @@ class _BottomBar extends ConsumerWidget {
             onTap: () {
               launchShareDialog(
                 context,
-                text: lichessUri(
+                text: lishogiUri(
                   '/training/${puzzleState.puzzle.puzzle.id}',
                 ).toString(),
               );

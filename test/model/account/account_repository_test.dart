@@ -62,8 +62,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = AccountRepository(client);
       final result = await repo.getPreferences();
 

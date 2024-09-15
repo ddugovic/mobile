@@ -22,8 +22,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = PuzzleRepository(client);
 
       final response = await repo.selectBatch(nb: 3);
@@ -45,8 +45,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = PuzzleRepository(client);
 
       final response = await repo.selectBatch(nb: 1);
@@ -68,8 +68,8 @@ void main() {
         }
         return mockResponse('', 404);
       });
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = PuzzleRepository(client);
 
       final result = await repo.selectBatch(nb: 1);
@@ -92,8 +92,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = PuzzleRepository(client);
       final result = await repo.streak();
 
@@ -113,8 +113,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = PuzzleRepository(client);
       final result = await repo.puzzleDashboard(30);
 

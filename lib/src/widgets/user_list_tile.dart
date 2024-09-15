@@ -67,7 +67,7 @@ class UserListTile extends StatelessWidget {
           : null,
       leading: Icon(
         isOnline == true ? Icons.cloud : Icons.cloud_off,
-        color: isOnline == true ? context.lichessColors.good : null,
+        color: isOnline == true ? context.lishogiColors.good : null,
       ),
       title: Padding(
         padding: const EdgeInsets.only(right: 5.0),
@@ -84,7 +84,7 @@ class UserListTile extends StatelessWidget {
               Text(
                 title!,
                 style: TextStyle(
-                  color: context.lichessColors.brag,
+                  color: context.lishogiColors.brag,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -100,7 +100,7 @@ class UserListTile extends StatelessWidget {
             if (flair != null) ...[
               const SizedBox(width: 5),
               CachedNetworkImage(
-                imageUrl: lichessFlairSrc(flair!),
+                imageUrl: lishogiFlairSrc(flair!),
                 errorWidget: (_, __, ___) => kEmptyWidget,
                 width: DefaultTextStyle.of(context).style.fontSize,
                 height: DefaultTextStyle.of(context).style.fontSize,

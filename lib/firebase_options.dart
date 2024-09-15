@@ -53,18 +53,18 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyDQI6NZ5CM8xpuq9jfM0-D4Tq6fYfsaSh0',
     appId: '1:974101866555:android:91f3475b526b436bb8541e',
     messagingSenderId: '974101866555',
-    projectId: 'lichessv2',
-    storageBucket: 'lichessv2.appspot.com',
+    projectId: 'lishogiv2',
+    storageBucket: 'lishogiv2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyC48jXlu52bjsbINcl3ixrrMEAbDf1uh90',
     appId: '1:974101866555:ios:1974acbdbcbfbe0eb8541e',
     messagingSenderId: '974101866555',
-    projectId: 'lichessv2',
-    storageBucket: 'lichessv2.appspot.com',
+    projectId: 'lishogiv2',
+    storageBucket: 'lishogiv2.appspot.com',
     iosClientId:
         '974101866555-8ag66ua0p0pn1ab7u982i58a9iubhbod.apps.googleusercontent.com',
-    iosBundleId: 'org.lichess.mobileV2',
+    iosBundleId: 'org.lishogi.mobileV2',
   );
 }

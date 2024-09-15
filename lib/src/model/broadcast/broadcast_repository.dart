@@ -10,7 +10,7 @@ import 'package:lichess_mobile/src/utils/json.dart';
 class BroadcastRepository {
   BroadcastRepository(this.client);
 
-  final LichessClient client;
+  final LishogiClient client;
 
   Future<BroadcastsList> getBroadcasts({int page = 1}) {
     return client.readJson(

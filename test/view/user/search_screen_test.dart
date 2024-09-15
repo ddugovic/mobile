@@ -29,8 +29,8 @@ void main() {
           tester,
           home: const SearchScreen(),
           overrides: [
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 
@@ -70,8 +70,8 @@ void main() {
           tester,
           home: const SearchScreen(),
           overrides: [
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 

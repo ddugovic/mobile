@@ -136,7 +136,7 @@ class GameShareBottomSheet extends ConsumerWidget {
           onPressed: () {
             launchShareDialog(
               context,
-              uri: lichessUri('/${game.id}'),
+              uri: lishogiUri('/${game.id}'),
             );
           },
           child: Text(context.l10n.mobileShareGameURL),
@@ -206,7 +206,7 @@ class GameShareBottomSheet extends ConsumerWidget {
                         context,
                         files: [image],
                         subject: context.l10n.puzzleFromGameLink(
-                          lichessUri('/${game.id}').toString(),
+                          lishogiUri('/${game.id}').toString(),
                         ),
                       );
                     }

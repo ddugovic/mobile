@@ -715,7 +715,7 @@ class _BottomBar extends ConsumerWidget {
                     context,
                     files: [image],
                     subject: context.l10n.puzzleFromGameLink(
-                      lichessUri('/$gameId').toString(),
+                      lishogiUri('/$gameId').toString(),
                     ),
                   );
                 }

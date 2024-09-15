@@ -249,7 +249,7 @@ class _ContextMenu extends ConsumerWidget {
           onPressed: () {
             launchShareDialog(
               context,
-              uri: lichessUri('/${game.id}'),
+              uri: lishogiUri('/${game.id}'),
             );
           },
           icon: CupertinoIcons.link,
@@ -321,7 +321,7 @@ class _ContextMenu extends ConsumerWidget {
                         context,
                         files: [image],
                         subject: context.l10n.puzzleFromGameLink(
-                          lichessUri('/${game.id}').toString(),
+                          lishogiUri('/${game.id}').toString(),
                         ),
                       );
                     }
@@ -441,16 +441,16 @@ class ExtendedGameListTile extends StatelessWidget {
         return game.winner == null
             ? Icon(
                 CupertinoIcons.equal_square_fill,
-                color: context.lichessColors.brag,
+                color: context.lishogiColors.brag,
               )
             : game.winner == mySide
                 ? Icon(
                     CupertinoIcons.plus_square_fill,
-                    color: context.lichessColors.good,
+                    color: context.lishogiColors.good,
                   )
                 : Icon(
                     CupertinoIcons.minus_square_fill,
-                    color: context.lichessColors.error,
+                    color: context.lishogiColors.error,
                   );
       }
     }

@@ -297,7 +297,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   }
 }
 
-const lichessCustomColors = CustomColors(
+const lishogiCustomColors = CustomColors(
   cyan: LichessColors.cyan,
   brag: LichessColors.brag,
   good: LichessColors.good,
@@ -308,6 +308,6 @@ const lichessCustomColors = CustomColors(
 );
 
 extension CustomColorsBuildContext on BuildContext {
-  CustomColors get lichessColors =>
-      Theme.of(this).extension<CustomColors>() ?? lichessCustomColors;
+  CustomColors get lishogiColors =>
+      Theme.of(this).extension<CustomColors>() ?? lishogiCustomColors;
 }

@@ -34,13 +34,13 @@ class OpeningExplorer extends _$OpeningExplorer {
           since: prefs.masterDb.sinceYear,
         );
         return (entry: openingExplorer, isIndexing: false);
-      case OpeningDatabase.lichess:
+      case OpeningDatabase.lishogi:
         final openingExplorer =
             await OpeningExplorerRepository(client).getLichessDatabase(
           fen,
-          speeds: prefs.lichessDb.speeds,
-          ratings: prefs.lichessDb.ratings,
-          since: prefs.lichessDb.since,
+          speeds: prefs.lishogiDb.speeds,
+          ratings: prefs.lishogiDb.ratings,
+          since: prefs.lishogiDb.since,
         );
         return (entry: openingExplorer, isIndexing: false);
       case OpeningDatabase.player:
@@ -103,7 +103,7 @@ class OpeningExplorerRepository {
     return client.readJson(
       Uri.https(
         kLichessOpeningExplorerHost,
-        '/lichess',
+        '/lishogi',
         {
           'fen': fen,
           if (speeds.isNotEmpty)

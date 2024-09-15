@@ -214,7 +214,7 @@ class _PlayerWidget extends StatelessWidget {
                       Consumer(
                         builder: (context, widgetRef, _) {
                           return SvgPicture.network(
-                            lichessFideFedSrc(player.federation!),
+                            lishogiFideFedSrc(player.federation!),
                             height: 12,
                             httpClient: widgetRef.read(defaultClientProvider),
                           );
@@ -226,7 +226,7 @@ class _PlayerWidget extends StatelessWidget {
                       Text(
                         player.title!,
                         style: const TextStyle().copyWith(
-                          color: context.lichessColors.brag,
+                          color: context.lishogiColors.brag,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

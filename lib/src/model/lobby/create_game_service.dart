@@ -29,7 +29,7 @@ class CreateGameService {
   final CreateGameServiceRef ref;
   final Logger _log;
 
-  LichessClient get lichessClient => ref.read(lichessClientProvider);
+  LishogiClient get lishogiClient => ref.read(lishogiClientProvider);
 
   /// The current lobby connection if we are creating a game from the lobby.
   StreamSubscription<SocketEvent>? _lobbyConnection;
@@ -79,7 +79,7 @@ class CreateGameService {
     }
 
     try {
-      await LobbyRepository(lichessClient)
+      await LobbyRepository(lishogiClient)
           .createSeek(actualSeek, sri: socketClient.sri);
     } catch (e) {
       _log.warning('Failed to create seek', e);
@@ -121,7 +121,7 @@ class CreateGameService {
     try {
       _log.info('Creating new challenge game');
 
-      final repo = ChallengeRepository(lichessClient);
+      final repo = ChallengeRepository(lishogiClient);
       final challenge = await repo.create(challengeReq);
 
       final socketPool = ref.read(socketPoolProvider);
@@ -173,7 +173,7 @@ class CreateGameService {
     _log.info('Cancelling game creation');
     final sri = ref.read(sriProvider);
     try {
-      await LobbyRepository(lichessClient).cancelSeek(sri: sri);
+      await LobbyRepository(lishogiClient).cancelSeek(sri: sri);
     } catch (e) {
       _log.warning('Failed to cancel seek: $e', e);
     }
@@ -184,7 +184,7 @@ class CreateGameService {
     if (id != null) {
       try {
         _log.info('Cancelling challenge');
-        await ChallengeRepository(lichessClient).cancel(id);
+        await ChallengeRepository(lishogiClient).cancel(id);
       } catch (e) {
         _log.warning('Failed to cancel challenge: $e', e);
       }

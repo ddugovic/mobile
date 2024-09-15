@@ -38,15 +38,15 @@ final _logger = Logger('HttpClient');
 
 const _maxCacheSize = 2 * 1024 * 1024;
 
-/// Creates a Uri pointing to lichess server with the given unencoded path and query parameters.
-Uri lichessUri(String unencodedPath, [Map<String, dynamic>? queryParameters]) =>
+/// Creates a Uri pointing to lishogi server with the given unencoded path and query parameters.
+Uri lishogiUri(String unencodedPath, [Map<String, dynamic>? queryParameters]) =>
     kLichessHost.startsWith('localhost')
         ? Uri.http(kLichessHost, unencodedPath, queryParameters)
         : Uri.https(kLichessHost, unencodedPath, queryParameters);
 
 /// Creates the appropriate http client for the platform.
 ///
-/// Do not use directly, use [defaultClient] or [lichessClient] instead.
+/// Do not use directly, use [defaultClient] or [lishogiClient] instead.
 Client httpClientFactory() {
   const userAgent = 'Lichess Mobile';
   if (Platform.isAndroid) {
@@ -70,8 +70,8 @@ Client httpClientFactory() {
 
 /// The default http client.
 ///
-/// This client is used for all requests that don't go to the lichess server, for
-/// example, requests to lichess CDN, or other APIs.
+/// This client is used for all requests that don't go to the lishogi server, for
+/// example, requests to lishogi CDN, or other APIs.
 /// Only one instance of this client is created and kept alive for the whole app.
 @Riverpod(keepAlive: true)
 Client defaultClient(DefaultClientRef ref) {
@@ -80,12 +80,12 @@ Client defaultClient(DefaultClientRef ref) {
   return client;
 }
 
-/// The http client configured to make requests to the lichess API.
+/// The http client configured to make requests to the lishogi API.
 ///
 /// Only one instance of this client is created and kept alive for the whole app.
 @Riverpod(keepAlive: true)
-LichessClient lichessClient(LichessClientRef ref) {
-  final client = LichessClient(
+LishogiClient lishogiClient(LishogiClientRef ref) {
+  final client = LishogiClient(
     // Retry just once, after 500ms, on 429 Too Many Requests.
     RetryClient(
       httpClientFactory(),
@@ -148,14 +148,14 @@ class LoggingClient extends BaseClient {
 
 /// Lichess HTTP client.
 ///
-/// - All requests go to the lichess server, defined in [kLichessHost].
+/// - All requests go to the lishogi server, defined in [kLichessHost].
 /// - Sets the Authorization header when a token has been stored.
 /// - Sets the user-agent header with the app version, build number, and device info. If the user is logged in, it also includes the user's id.
 /// - Logs all requests and responses with status code >= 400.
-class LichessClient implements Client {
-  LichessClient(this._inner, this._ref);
+class LishogiClient implements Client {
+  LishogiClient(this._inner, this._ref);
 
-  final LichessClientRef _ref;
+  final LishogiClientRef _ref;
   final Client _inner;
 
   @override
@@ -279,7 +279,7 @@ class LichessClient implements Client {
   ]) async {
     final request = Request(
       method,
-      lichessUri(url.path, url.hasQuery ? url.queryParameters : null),
+      lishogiUri(url.path, url.hasQuery ? url.queryParameters : null),
     );
 
     if (headers != null) request.headers.addAll(headers);
@@ -553,35 +553,35 @@ extension ClientExtension on Client {
 }
 
 extension ClientWidgetRefExtension on WidgetRef {
-  /// Runs [fn] with a [LichessClient].
-  Future<T> withClient<T>(Future<T> Function(LichessClient) fn) async {
-    final client = read(lichessClientProvider);
+  /// Runs [fn] with a [LishogiClient].
+  Future<T> withClient<T>(Future<T> Function(LishogiClient) fn) async {
+    final client = read(lishogiClientProvider);
     return await fn(client);
   }
 }
 
 extension ClientRefExtension on Ref {
-  /// Runs [fn] with a [LichessClient].
-  Future<T> withClient<T>(Future<T> Function(LichessClient) fn) async {
-    final client = read(lichessClientProvider);
+  /// Runs [fn] with a [LishogiClient].
+  Future<T> withClient<T>(Future<T> Function(LishogiClient) fn) async {
+    final client = read(lishogiClientProvider);
     return await fn(client);
   }
 }
 
 extension ClientAutoDisposeRefExtension<T> on AutoDisposeRef<T> {
-  /// Runs [fn] with a [LichessClient] and keeps the provider alive for [duration].
+  /// Runs [fn] with a [LishogiClient] and keeps the provider alive for [duration].
   ///
   /// This is primarily used for caching network requests in a [FutureProvider].
   ///
   /// If [fn] throws with a [SocketException], the provider is not kept alive, this
   /// allows to retry the request later.
   Future<U> withClientCacheFor<U>(
-    Future<U> Function(LichessClient) fn,
+    Future<U> Function(LishogiClient) fn,
     Duration duration,
   ) async {
     final link = keepAlive();
     final timer = Timer(duration, link.close);
-    final client = read(lichessClientProvider);
+    final client = read(lishogiClientProvider);
     onDispose(() {
       timer.cancel();
     });

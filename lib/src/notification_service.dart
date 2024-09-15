@@ -73,8 +73,8 @@ class NotificationService {
   /// Process a message received while the app is in the foreground.
   Future<void> processDataMessage(RemoteMessage message) async {
     _log.fine('processing message received in foreground: $message');
-    final gameFullId = message.data['lichess.fullId'] as String?;
-    final round = message.data['lichess.round'] as String?;
+    final gameFullId = message.data['lishogi.fullId'] as String?;
+    final round = message.data['lishogi.round'] as String?;
     // update correspondence game
     if (gameFullId != null && round != null) {
       final fullId = GameFullId(gameFullId);
@@ -89,7 +89,7 @@ class NotificationService {
     }
 
     // update badge
-    final badge = message.data['lichess.iosBadge'] as String?;
+    final badge = message.data['lishogi.iosBadge'] as String?;
     if (badge != null) {
       try {
         BadgeService.instance.setBadge(int.parse(badge));

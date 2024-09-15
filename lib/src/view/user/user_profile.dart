@@ -53,7 +53,7 @@ class UserProfileWidget extends ConsumerWidget {
               padding: const EdgeInsets.only(bottom: 5),
               child: Row(
                 children: [
-                  Icon(Icons.error, color: context.lichessColors.error),
+                  Icon(Icons.error, color: context.lishogiColors.error),
                   const SizedBox(
                     width: 5,
                   ),
@@ -61,7 +61,7 @@ class UserProfileWidget extends ConsumerWidget {
                     child: Text(
                       context.l10n.thisAccountViolatedTos,
                       style: TextStyle(
-                        color: context.lichessColors.error,
+                        color: context.lishogiColors.error,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -191,7 +191,7 @@ class Location extends StatelessWidget {
       children: [
         if (profile.country != null) ...[
           CachedNetworkImage(
-            imageUrl: lichessFlagSrc(profile.country!),
+            imageUrl: lishogiFlagSrc(profile.country!),
             errorWidget: (_, __, ___) => kEmptyWidget,
           ),
           const SizedBox(width: 5),

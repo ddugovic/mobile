@@ -13,7 +13,7 @@ typedef ChallengesList = ({
 class ChallengeRepository {
   const ChallengeRepository(this.client);
 
-  final LichessClient client;
+  final LishogiClient client;
 
   Future<ChallengesList> list() async {
     final uri = Uri(path: '/api/challenge');

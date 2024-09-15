@@ -44,7 +44,7 @@ class OpeningExplorerSettings extends ConsumerWidget {
       ),
     ];
 
-    final List<Widget> lichessDbSettings = [
+    final List<Widget> lishogiDbSettings = [
       PlatformListTile(
         title: Text(context.l10n.timeControl),
         subtitle: Wrap(
@@ -63,7 +63,7 @@ class OpeningExplorerSettings extends ConsumerWidget {
                     Variant.standard,
                     speed,
                   ).title,
-                  selected: prefs.lichessDb.speeds.contains(speed),
+                  selected: prefs.lishogiDb.speeds.contains(speed),
                   onSelected: (_) => ref
                       .read(openingExplorerPreferencesProvider.notifier)
                       .toggleLichessDbSpeed(speed),
@@ -85,7 +85,7 @@ class OpeningExplorerSettings extends ConsumerWidget {
                       : rating == 2500
                           ? '2500+'
                           : '$rating-${rating + 200}',
-                  selected: prefs.lichessDb.ratings.contains(rating),
+                  selected: prefs.lishogiDb.ratings.contains(rating),
                   onSelected: (_) => ref
                       .read(openingExplorerPreferencesProvider.notifier)
                       .toggleLichessDbRating(rating),
@@ -103,7 +103,7 @@ class OpeningExplorerSettings extends ConsumerWidget {
                 (key) => ChoiceChip(
                   label: Text(key),
                   selected:
-                      prefs.lichessDb.since == LichessDbPrefState.datesMap[key],
+                      prefs.lishogiDb.since == LichessDbPrefState.datesMap[key],
                   onSelected: (_) => ref
                       .read(openingExplorerPreferencesProvider.notifier)
                       .setLichessDbSince(LichessDbPrefState.datesMap[key]!),
@@ -254,10 +254,10 @@ class OpeningExplorerSettings extends ConsumerWidget {
               ),
               ChoiceChip(
                 label: const Text('Lichess'),
-                selected: prefs.db == OpeningDatabase.lichess,
+                selected: prefs.db == OpeningDatabase.lishogi,
                 onSelected: (_) => ref
                     .read(openingExplorerPreferencesProvider.notifier)
-                    .setDatabase(OpeningDatabase.lichess),
+                    .setDatabase(OpeningDatabase.lishogi),
               ),
               ChoiceChip(
                 label: Text(context.l10n.player),
@@ -271,7 +271,7 @@ class OpeningExplorerSettings extends ConsumerWidget {
         ),
         ...switch (prefs.db) {
           OpeningDatabase.master => masterDbSettings,
-          OpeningDatabase.lichess => lichessDbSettings,
+          OpeningDatabase.lishogi => lishogiDbSettings,
           OpeningDatabase.player => playerDbSettings,
         },
       ],

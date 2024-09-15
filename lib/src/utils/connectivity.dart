@@ -114,7 +114,7 @@ class ConnectivityStatus with _$ConnectivityStatus {
 
 final _internetCheckUris = [
   Uri.parse('https://www.gstatic.com/generate_204'),
-  Uri.parse('$kLichessCDNHost/assets/logo/lichess-favicon-32.png'),
+  Uri.parse('$kLichessCDNHost/assets/logo/lishogi-favicon-32.png'),
 ];
 
 /// Checks if the device is online by making a HEAD request to a list of URIs.

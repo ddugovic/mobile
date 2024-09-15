@@ -48,10 +48,10 @@ const modules = [
 // list of keys (per module) to include in the ARB file
 // If a module is not listed here, all keys will be included
 const whiteLists = {
-  'patron': ['donate', 'lichessPatron'],
+  'patron': ['donate', 'lishogiPatron'],
   'contact': ['contact', 'contactLichess'],
   'search': ['search'],
-  'streamer': ['lichessStreamers'],
+  'streamer': ['lishogiStreamers'],
   'study': ['start', 'shareAndExport'],
   'broadcast': ['broadcasts', 'liveBroadcasts'],
 }
@@ -150,7 +150,7 @@ async function generateTemplateARB() {
 async function downloadTranslationsTo(zipFile) {
   console.log(colors.blue('Downloading translations...'))
   const streamPipeline = promisify(pipeline)
-  const response = await fetch('https://crowdin.com/backend/download/project/lichess.zip')
+  const response = await fetch('https://crowdin.com/backend/download/project/lishogi.zip')
   if (!response.ok) throw new Error(`unexpected response ${response.statusText}`)
 
   await streamPipeline(response.body, zipFile)

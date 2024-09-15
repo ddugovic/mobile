@@ -35,13 +35,13 @@ class MockHttpClient extends Mock implements http.Client {}
 
 const shouldLog = false;
 
-/// Returns a [ProviderContainer] with a mocked [LichessClient] configured with
+/// Returns a [ProviderContainer] with a mocked [LishogiClient] configured with
 /// the given [mockClient].
-Future<ProviderContainer> lichessClientContainer(MockClient mockClient) async {
+Future<ProviderContainer> lishogiClientContainer(MockClient mockClient) async {
   return makeContainer(
     overrides: [
-      lichessClientProvider.overrideWith((ref) {
-        return LichessClient(mockClient, ref);
+      lishogiClientProvider.overrideWith((ref) {
+        return LishogiClient(mockClient, ref);
       }),
     ],
   );
@@ -78,8 +78,8 @@ Future<ProviderContainer> makeContainer({
         ref.onDispose(pool.dispose);
         return pool;
       }),
-      lichessClientProvider.overrideWith((ref) {
-        return LichessClient(MockHttpClient(), ref);
+      lishogiClientProvider.overrideWith((ref) {
+        return LishogiClient(MockHttpClient(), ref);
       }),
       connectivityChangesProvider.overrideWith(() {
         return FakeConnectivityChanges();

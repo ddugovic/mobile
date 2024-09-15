@@ -81,8 +81,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
 
       final repo = OpeningExplorerRepository(client);
 
@@ -137,14 +137,14 @@ void main() {
       ''';
 
       final mockClient = MockClient((request) {
-        if (request.url.path == '/lichess') {
+        if (request.url.path == '/lishogi') {
           return mockResponse(response, 200);
         }
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
 
       final repo = OpeningExplorerRepository(client);
 
@@ -212,8 +212,8 @@ void main() {
         return mockResponse('', 404);
       });
 
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
 
       final repo = OpeningExplorerRepository(client);
 

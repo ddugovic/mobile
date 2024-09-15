@@ -19,8 +19,8 @@ void main() {
 
   group('LobbyRepository.getCorrespondenceChallenges', () {
     test('read json', () async {
-      final container = await lichessClientContainer(mockClient);
-      final client = container.read(lichessClientProvider);
+      final container = await lishogiClientContainer(mockClient);
+      final client = container.read(lishogiClientProvider);
       final repo = LobbyRepository(client);
 
       final data = await repo.getCorrespondenceChallenges();

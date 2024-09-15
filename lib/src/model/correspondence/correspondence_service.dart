@@ -105,7 +105,7 @@ class CorrespondenceService {
       if (gameToSync.registeredMoveAtPgn == null) {
         continue;
       }
-      final uri = lichessWSUri('/play/${gameToSync.fullId}/v6');
+      final uri = lishogiWSUri('/play/${gameToSync.fullId}/v6');
       WebSocket? socket;
       StreamSubscription<SocketEvent>? streamSubscription;
       try {

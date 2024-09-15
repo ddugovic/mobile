@@ -93,7 +93,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>org.lichess.mobile</string>
+				<string>org.lishogi.mobile</string>
 			</array>
 		</dict>
 	</array>

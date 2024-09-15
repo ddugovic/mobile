@@ -5,7 +5,7 @@ import 'package:lichess_mobile/src/model/common/chess.dart';
 import 'package:lichess_mobile/src/model/common/speed.dart';
 import 'package:lichess_mobile/src/styles/lichess_icons.dart';
 
-/// Represents a lichess rating perf item
+/// Represents a lishogi rating perf item
 enum Perf {
   ultraBullet('UltraBullet', 'Ultra', LichessIcons.ultrabullet),
   bullet('Bullet', 'Bullet', LichessIcons.bullet),
@@ -89,7 +89,7 @@ extension PerfExtension on Pick {
       if (Perf.nameMap.containsKey(value)) {
         return Perf.nameMap[value]!;
       }
-      // handle lichess api inconsistencies
+      // handle lishogi api inconsistencies
       final valueKey = _titleKey(value);
       if (_lowerCaseTitleMap.containsKey(valueKey)) {
         return _lowerCaseTitleMap[valueKey]!;

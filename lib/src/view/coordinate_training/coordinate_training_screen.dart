@@ -86,8 +86,8 @@ class _BodyState extends ConsumerState<_Body> {
             highlightLastGuess!: SquareHighlight(
               details: HighlightDetails(
                 solidColor: (trainingState.lastGuess == Guess.correct
-                        ? context.lichessColors.good
-                        : context.lichessColors.error)
+                        ? context.lishogiColors.good
+                        : context.lishogiColors.error)
                     .withValues(alpha: 0.5),
               ),
             ),
@@ -95,7 +95,7 @@ class _BodyState extends ConsumerState<_Body> {
         } else ...{
           trainingState.currentCoord!: SquareHighlight(
             details: HighlightDetails(
-              solidColor: context.lichessColors.good.withValues(alpha: 0.5),
+              solidColor: context.lishogiColors.good.withValues(alpha: 0.5),
             ),
           ),
         },
@@ -135,8 +135,8 @@ class _BodyState extends ConsumerState<_Body> {
                           timeFractionElapsed:
                               trainingState.timeFractionElapsed,
                           color: trainingState.lastGuess == Guess.incorrect
-                              ? context.lichessColors.error
-                              : context.lichessColors.good,
+                              ? context.lishogiColors.error
+                              : context.lishogiColors.good,
                         ),
                         _TrainingBoard(
                           boardSize: boardSize,
@@ -156,8 +156,8 @@ class _BodyState extends ConsumerState<_Body> {
                               score: trainingState.score,
                               size: boardSize / 8,
                               color: trainingState.lastGuess == Guess.incorrect
-                                  ? context.lichessColors.error
-                                  : context.lichessColors.good,
+                                  ? context.lishogiColors.error
+                                  : context.lishogiColors.good,
                             ),
                             FatButton(
                               semanticsLabel: 'Abort Training',

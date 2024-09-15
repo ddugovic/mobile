@@ -1,13 +1,13 @@
 import 'package:lichess_mobile/src/constants.dart';
 
-String lichessFlagSrc(String country) {
+String lishogiFlagSrc(String country) {
   return '$kLichessCDNHost/assets/images/flags/$country.png';
 }
 
-String lichessFlairSrc(String flair) {
+String lishogiFlairSrc(String flair) {
   return '$kLichessCDNHost/assets/flair/img/$flair.webp';
 }
 
-String lichessFideFedSrc(String name) {
+String lishogiFideFedSrc(String name) {
   return '$kLichessCDNHost/assets/images/fide-fed/$name.svg';
 }

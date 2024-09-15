@@ -11,7 +11,7 @@ import 'package:lichess_mobile/src/model/game/playable_game.dart';
 class GameRepository {
   const GameRepository(this.client);
 
-  final LichessClient client;
+  final LishogiClient client;
 
   Future<ArchivedGame> getGame(GameId id) {
     return client.readJson(

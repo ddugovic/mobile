@@ -30,7 +30,7 @@ const standaloneOpeningExplorerId = StringId('standalone_opening_explorer');
 
 final _dateFormat = DateFormat('yyyy.MM.dd');
 
-/// Whether the analysis is a standalone analysis (not a lichess game analysis).
+/// Whether the analysis is a standalone analysis (not a lishogi game analysis).
 bool _isStandaloneAnalysis(StringId id) =>
     id == standaloneAnalysisId || id == standaloneOpeningExplorerId;
 
@@ -51,10 +51,10 @@ class AnalysisOptions with _$AnalysisOptions {
     ({PlayerAnalysis white, PlayerAnalysis black})? serverAnalysis,
   }) = _AnalysisOptions;
 
-  /// Whether the analysis is for a lichess game.
+  /// Whether the analysis is for a lishogi game.
   bool get isLichessGameAnalysis => gameAnyId != null;
 
-  /// The game ID of the analysis, if it's a lichess game.
+  /// The game ID of the analysis, if it's a lishogi game.
   GameAnyId? get gameAnyId =>
       _isStandaloneAnalysis(id) ? null : GameAnyId(id.value);
 }
@@ -557,11 +557,11 @@ class AnalysisController extends _$AnalysisController {
         pgnEval != null ? PgnComment(eval: pgnEval, text: comment) : null;
     if (n1 is Branch) {
       if (pgnComment != null) {
-        if (n1.lichessAnalysisComments == null) {
-          n1.lichessAnalysisComments = [pgnComment];
+        if (n1.lishogiAnalysisComments == null) {
+          n1.lishogiAnalysisComments = [pgnComment];
         } else {
-          n1.lichessAnalysisComments!.removeWhere((c) => c.eval != null);
-          n1.lichessAnalysisComments!.add(pgnComment);
+          n1.lishogiAnalysisComments!.removeWhere((c) => c.eval != null);
+          n1.lishogiAnalysisComments!.add(pgnComment);
         }
       }
       if (glyph != null) {
@@ -590,7 +590,7 @@ class AnalysisController extends _$AnalysisController {
   }
 
   IList<ExternalEval>? _makeAcplChartData() {
-    if (!_root.mainline.any((node) => node.lichessAnalysisComments != null)) {
+    if (!_root.mainline.any((node) => node.lishogiAnalysisComments != null)) {
       return null;
     }
     final list = _root.mainline
@@ -598,7 +598,7 @@ class AnalysisController extends _$AnalysisController {
       (node) => (
         node.position.isCheckmate,
         node.position.turn,
-        node.lichessAnalysisComments
+        node.lishogiAnalysisComments
             ?.firstWhereOrNull((c) => c.eval != null)
             ?.eval
       ),
@@ -679,7 +679,7 @@ class AnalysisState with _$AnalysisState {
     /// Possible promotion move to be played.
     NormalMove? promotionMove,
 
-    /// Opening of the analysis context (from lichess archived games).
+    /// Opening of the analysis context (from lishogi archived games).
     Opening? contextOpening,
 
     /// The opening of the current branch.
@@ -688,7 +688,7 @@ class AnalysisState with _$AnalysisState {
     /// Optional server analysis to display player stats.
     ({PlayerAnalysis white, PlayerAnalysis black})? playersAnalysis,
 
-    /// Optional ACPL chart data of the game, coming from lichess server analysis.
+    /// Optional ACPL chart data of the game, coming from lishogi server analysis.
     IList<Eval>? acplChartData,
 
     /// The PGN headers of the game.
@@ -700,11 +700,11 @@ class AnalysisState with _$AnalysisState {
     IList<PgnComment>? pgnRootComments,
   }) = _AnalysisState;
 
-  /// The game ID of the analysis, if it's a lichess game.
+  /// The game ID of the analysis, if it's a lishogi game.
   GameAnyId? get gameAnyId =>
       _isStandaloneAnalysis(id) ? null : GameAnyId(id.value);
 
-  /// Whether the analysis is for a lichess game.
+  /// Whether the analysis is for a lishogi game.
   bool get isLichessGameAnalysis => gameAnyId != null;
 
   IMap<Square, ISet<Square>> get validMoves =>
@@ -712,7 +712,7 @@ class AnalysisState with _$AnalysisState {
 
   /// Whether the user can request server analysis.
   ///
-  /// It must be a lichess game, which is finished and not already analyzed.
+  /// It must be a lishogi game, which is finished and not already analyzed.
   bool get canRequestServerAnalysis =>
       gameAnyId != null &&
       (id.length == 8 || id.length == 12) &&
@@ -768,7 +768,7 @@ class AnalysisCurrentNode with _$AnalysisCurrentNode {
     SanMove? sanMove,
     Opening? opening,
     ClientEval? eval,
-    IList<PgnComment>? lichessAnalysisComments,
+    IList<PgnComment>? lishogiAnalysisComments,
     IList<PgnComment>? startingComments,
     IList<PgnComment>? comments,
     IList<int>? nags,
@@ -783,7 +783,7 @@ class AnalysisCurrentNode with _$AnalysisCurrentNode {
         hasChild: node.children.isNotEmpty,
         opening: node.opening,
         eval: node.eval,
-        lichessAnalysisComments: IList(node.lichessAnalysisComments),
+        lishogiAnalysisComments: IList(node.lishogiAnalysisComments),
         startingComments: IList(node.startingComments),
         comments: IList(node.comments),
         nags: IList(node.nags),
@@ -801,10 +801,10 @@ class AnalysisCurrentNode with _$AnalysisCurrentNode {
 
   /// The evaluation from the PGN comments.
   ///
-  /// For now we only trust the eval coming from lichess analysis.
+  /// For now we only trust the eval coming from lishogi analysis.
   ExternalEval? get serverEval {
     final pgnEval =
-        lichessAnalysisComments?.firstWhereOrNull((c) => c.eval != null)?.eval;
+        lishogiAnalysisComments?.firstWhereOrNull((c) => c.eval != null)?.eval;
     return pgnEval != null
         ? ExternalEval(
             cp: pgnEval.pawns != null ? cpFromPawns(pgnEval.pawns!) : null,

@@ -95,8 +95,8 @@ Future<Widget> buildTestApp(
   return ProviderScope(
     overrides: [
       // ignore: scoped_providers_should_specify_dependencies
-      lichessClientProvider.overrideWith((ref) {
-        return LichessClient(mockClient, ref);
+      lishogiClientProvider.overrideWith((ref) {
+        return LishogiClient(mockClient, ref);
       }),
       // ignore: scoped_providers_should_specify_dependencies
       defaultClientProvider.overrideWith((_) {

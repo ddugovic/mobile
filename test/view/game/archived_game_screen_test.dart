@@ -39,8 +39,8 @@ void main() {
             orientation: Side.white,
           ),
           overrides: [
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 
@@ -72,8 +72,8 @@ void main() {
             orientation: Side.white,
           ),
           overrides: [
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 
@@ -145,8 +145,8 @@ void main() {
           orientation: Side.white,
         ),
         overrides: [
-          lichessClientProvider.overrideWith((ref) {
-            return LichessClient(client, ref);
+          lishogiClientProvider.overrideWith((ref) {
+            return LishogiClient(client, ref);
           }),
         ],
       );

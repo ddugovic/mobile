@@ -156,7 +156,7 @@ class PuzzleService {
 
     final deficit = max(0, queueLength - unsolved.length);
 
-    _log.fine('Have a puzzle deficit of $deficit, will sync with lichess');
+    _log.fine('Have a puzzle deficit of $deficit, will sync with lishogi');
 
     final difficulty = _ref.read(puzzlePreferencesProvider(userId)).difficulty;
 

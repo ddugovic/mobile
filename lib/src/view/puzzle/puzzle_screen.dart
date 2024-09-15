@@ -473,7 +473,7 @@ class _BottomBar extends ConsumerWidget {
           onPressed: (context) {
             launchShareDialog(
               context,
-              text: lichessUri('/training/${puzzleState.puzzle.puzzle.id}')
+              text: lishogiUri('/training/${puzzleState.puzzle.puzzle.id}')
                   .toString(),
             );
           },

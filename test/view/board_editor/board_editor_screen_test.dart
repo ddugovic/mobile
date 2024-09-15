@@ -205,7 +205,7 @@ void main() {
 
       expect(
         container.read(controllerProvider).fen,
-        // Obtained by playing the moves above on lichess.org/editor
+        // Obtained by playing the moves above on lishogi.org/editor
         '1nbqkbnr/pppppppp/r7/8/3PP3/8/PPP2PPP/RNQ1KBNR w KQk - 0 1',
       );
     });

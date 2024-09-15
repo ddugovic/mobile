@@ -85,8 +85,8 @@ class GamePlayer extends StatelessWidget {
                     fontWeight:
                         player.user?.title == 'BOT' ? null : FontWeight.bold,
                     color: player.user?.title == 'BOT'
-                        ? context.lichessColors.fancy
-                        : context.lichessColors.brag,
+                        ? context.lishogiColors.fancy
+                        : context.lishogiColors.brag,
                   ),
                 ),
                 const SizedBox(width: 5),
@@ -104,7 +104,7 @@ class GamePlayer extends StatelessWidget {
               if (player.user?.flair != null) ...[
                 const SizedBox(width: 5),
                 CachedNetworkImage(
-                  imageUrl: lichessFlairSrc(player.user!.flair!),
+                  imageUrl: lishogiFlairSrc(player.user!.flair!),
                   errorWidget: (_, __, ___) => kEmptyWidget,
                   width: 16,
                   height: 16,
@@ -123,8 +123,8 @@ class GamePlayer extends StatelessWidget {
                                 ' ${player.ratingDiff! > 0 ? '+' : ''}${player.ratingDiff}',
                             style: TextStyle(
                               color: player.ratingDiff! > 0
-                                  ? context.lichessColors.good
-                                  : context.lichessColors.error,
+                                  ? context.lishogiColors.good
+                                  : context.lishogiColors.error,
                             ),
                           ),
                       ],
@@ -230,7 +230,7 @@ class ConfirmMove extends StatelessWidget {
       children: [
         PlatformIconButton(
           icon: CupertinoIcons.xmark_rectangle_fill,
-          color: context.lichessColors.error,
+          color: context.lishogiColors.error,
           iconSize: 35,
           semanticsLabel: context.l10n.cancel,
           padding: const EdgeInsets.all(10),
@@ -246,7 +246,7 @@ class ConfirmMove extends StatelessWidget {
         ),
         PlatformIconButton(
           icon: CupertinoIcons.checkmark_rectangle_fill,
-          color: context.lichessColors.good,
+          color: context.lishogiColors.good,
           iconSize: 35,
           semanticsLabel: context.l10n.accept,
           padding: const EdgeInsets.all(10),
@@ -317,7 +317,7 @@ class _MoveExpirationState extends State<MoveExpiration> {
             context.l10n.nbSecondsToPlayTheFirstMove(secs),
             style: TextStyle(
               color: widget.mePlaying && emerg
-                  ? context.lichessColors.error
+                  ? context.lishogiColors.error
                   : null,
             ),
           )

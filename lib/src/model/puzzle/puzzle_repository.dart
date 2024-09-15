@@ -26,7 +26,7 @@ part 'puzzle_repository.freezed.dart';
 class PuzzleRepository {
   PuzzleRepository(this.client);
 
-  final LichessClient client;
+  final LishogiClient client;
 
   Future<PuzzleBatchResponse> selectBatch({
     required int nb,

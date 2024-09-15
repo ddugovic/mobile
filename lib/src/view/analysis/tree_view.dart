@@ -547,7 +547,7 @@ class _MoveContextMenu extends ConsumerWidget {
               vertical: 8.0,
             ),
             child: Text(
-              branch.lichessAnalysisComments!
+              branch.lishogiAnalysisComments!
                   .map((c) => c.text ?? '')
                   .join(' '),
             ),

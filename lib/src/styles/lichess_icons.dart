@@ -60,12 +60,12 @@ class LichessIcons {
   static const IconData tournament_cup = IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData cogs = IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData crown = IconData(0xe81a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData lichess = IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData lishogi = IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData adjust = IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData flow_cascade = IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData radio_tower_lichess = IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData radio_tower_lishogi = IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData crossed_swords = IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData book_lichess = IconData(0xe820, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData book_lishogi = IconData(0xe820, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData tag = IconData(0xf02b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData tags = IconData(0xf02c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData step_backward = IconData(0xf048, fontFamily: _kFontFam, fontPackage: _kFontPkg);

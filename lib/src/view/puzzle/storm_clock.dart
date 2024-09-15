@@ -121,8 +121,8 @@ class _ClockState extends State<StormClockWidget>
                       '${currentBonusSeconds! > 0 ? '+' : ''}$currentBonusSeconds',
                       style: TextStyle(
                         color: currentBonusSeconds! < 0
-                            ? context.lichessColors.error
-                            : context.lichessColors.good,
+                            ? context.lishogiColors.error
+                            : context.lishogiColors.good,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         fontFeatures: const [FontFeature.tabularFigures()],
@@ -147,8 +147,8 @@ class _ClockState extends State<StormClockWidget>
                     '$minutes:$seconds',
                     style: TextStyle(
                       color: currentBonusSeconds! < 0
-                          ? context.lichessColors.error
-                          : context.lichessColors.good,
+                          ? context.lishogiColors.error
+                          : context.lishogiColors.good,
                       fontSize: _kClockFontSize,
                       fontFeatures: const [
                         FontFeature.tabularFigures(),

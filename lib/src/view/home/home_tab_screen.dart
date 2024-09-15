@@ -78,7 +78,7 @@ class _HomeScreenState extends ConsumerState<HomeTabScreen> with RouteAware {
     final isEditing = ref.watch(editModeProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('lichess.org'),
+        title: const Text('lishogi.org'),
         actions: [
           IconButton(
             onPressed: () {
@@ -424,7 +424,7 @@ class _WelcomeScreen extends StatelessWidget {
           child: SecondaryButton(
             semanticsLabel: context.l10n.patronDonate,
             onPressed: () {
-              launchUrl(Uri.parse('https://lichess.org/patron'));
+              launchUrl(Uri.parse('https://lishogi.org/patron'));
             },
             child: Text(context.l10n.patronDonate),
           ),
@@ -435,7 +435,7 @@ class _WelcomeScreen extends StatelessWidget {
         child: SecondaryButton(
           semanticsLabel: context.l10n.aboutX('Lichess...'),
           onPressed: () {
-            launchUrl(Uri.parse('https://lichess.org/about'));
+            launchUrl(Uri.parse('https://lishogi.org/about'));
           },
           child: Text(context.l10n.aboutX('Lichess...')),
         ),
@@ -532,7 +532,7 @@ class _HelloWidget extends ConsumerWidget {
             Icon(
               Icons.wb_sunny,
               size: iconSize,
-              color: context.lichessColors.brag,
+              color: context.lishogiColors.brag,
             ),
             const SizedBox(width: 5.0),
             if (user != null)

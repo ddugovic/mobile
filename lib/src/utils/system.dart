@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class System {
   const System._();
 
-  static const _channel = MethodChannel('mobile.lichess.org/system');
+  static const _channel = MethodChannel('mobile.lishogi.org/system');
 
   static const instance = System._();
 

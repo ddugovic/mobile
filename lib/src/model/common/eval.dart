@@ -14,7 +14,7 @@ sealed class Eval {
   double winningChances(Side side);
 }
 
-/// The eval from an external engine, typically lichess server side stockfish.
+/// The eval from an external engine, typically lishogi server side stockfish.
 @Freezed(fromJson: true, toJson: true)
 class ExternalEval with _$ExternalEval implements Eval {
   const ExternalEval._();

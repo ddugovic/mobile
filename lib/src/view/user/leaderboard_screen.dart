@@ -167,8 +167,8 @@ class _Progress extends StatelessWidget {
               : LichessIcons.arrow_full_lowerright,
           size: 16,
           color: progress > 0
-              ? context.lichessColors.good
-              : context.lichessColors.error,
+              ? context.lishogiColors.good
+              : context.lishogiColors.error,
         ),
         Text(
           '${progress.abs()}',
@@ -176,8 +176,8 @@ class _Progress extends StatelessWidget {
           style: TextStyle(
             fontSize: 12,
             color: progress > 0
-                ? context.lichessColors.good
-                : context.lichessColors.error,
+                ? context.lishogiColors.good
+                : context.lishogiColors.error,
           ),
         ),
       ],
@@ -206,7 +206,7 @@ class _Leaderboard extends StatelessWidget {
         showDivider: showDivider,
         header: Row(
           children: [
-            Icon(iconData, color: context.lichessColors.brag),
+            Icon(iconData, color: context.lishogiColors.brag),
             const SizedBox(width: 10.0),
             Text(title),
           ],

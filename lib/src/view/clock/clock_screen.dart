@@ -73,7 +73,7 @@ class ClockTile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final colorScheme = Theme.of(context).colorScheme;
     final backgroundColor = clockState.isLoser(playerType)
-        ? context.lichessColors.error
+        ? context.lishogiColors.error
         : !clockState.paused && clockState.isPlayersTurn(playerType)
             ? colorScheme.primary
             : clockState.activeSide == playerType

@@ -105,7 +105,7 @@ Future<AppInitializationData> appInitialization(
     try {
       final client = ref.read(defaultClientProvider);
       final response = await client.get(
-        lichessUri('/api/account'),
+        lishogiUri('/api/account'),
         headers: {
           'Authorization': 'Bearer ${signBearerToken(storedSession.token)}',
           'User-Agent':

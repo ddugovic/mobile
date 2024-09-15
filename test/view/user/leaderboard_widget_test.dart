@@ -25,8 +25,8 @@ void main() {
           tester,
           home: Column(children: [LeaderboardWidget()]),
           overrides: [
-            lichessClientProvider
-                .overrideWith((ref) => LichessClient(client, ref)),
+            lishogiClientProvider
+                .overrideWith((ref) => LishogiClient(client, ref)),
           ],
         );
 

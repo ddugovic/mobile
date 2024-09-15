@@ -171,9 +171,9 @@ void showCupertinoSnackBar({
         snackBar: CupertinoSnackBar(
           message: message,
           backgroundColor: (type == SnackBarType.error
-                  ? context.lichessColors.error
+                  ? context.lishogiColors.error
                   : type == SnackBarType.success
-                      ? context.lichessColors.good
+                      ? context.lishogiColors.good
                       : CupertinoColors.systemGrey.resolveFrom(context))
               .withValues(alpha: 0.6),
           textStyle: const TextStyle(color: Colors.white),

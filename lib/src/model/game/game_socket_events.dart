@@ -191,7 +191,7 @@ ServerEvalEvent _serverEvalEventFromPick(RequiredPick pick) {
       }
     }
     nextVariation = buffer.isEmpty ? null : buffer.toString();
-    // make it compatible with lichess API GET /game/export which doesn't return
+    // make it compatible with lishogi API GET /game/export which doesn't return
     // an eval of the starting position
     // also make sure to not add an empty eval for checkmate (or stalemate) which
     // would be the leaf node with no eval
